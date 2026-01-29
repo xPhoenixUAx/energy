@@ -248,4 +248,20 @@ document.addEventListener("DOMContentLoaded", () => {
       console.warn("Cookie banner failed:", e);
     }
   })();
+
+  // Persistent mobile 'Call Now' button (site-wide)
+  (function addCallNow() {
+    try {
+      if (document.querySelector(".call-now")) return;
+      const a = document.createElement("a");
+      a.href = "tel:+15551234567";
+      a.className = "call-now";
+      a.setAttribute("aria-label", "Call VoltGuard");
+      a.innerHTML =
+        '<span class="call-icon">📞</span><span class="call-text">Call Now</span>';
+      document.body.appendChild(a);
+    } catch (e) {
+      console.warn("Call Now button failed:", e);
+    }
+  })();
 });

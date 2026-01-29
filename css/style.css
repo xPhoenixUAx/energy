@@ -59,6 +59,60 @@ img {
   display: block;
 }
 
+/* Pulse animation for Call Now button */
+.call-now {
+  animation: pulse 1.8s ease-in-out infinite;
+  overflow: visible;
+}
+.call-now::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  background: rgba(14, 165, 233, 0.12);
+  z-index: -1;
+  animation: pulse-ring 1.8s ease-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 8px 20px rgba(2, 6, 23, 0.18);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.06);
+    box-shadow: 0 12px 30px rgba(14, 165, 233, 0.22);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 8px 20px rgba(2, 6, 23, 0.18);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(1.8);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .call-now,
+  .call-now::after {
+    animation: none !important;
+  }
+}
 /* =========================================
    2. UTILITIES
    ========================================= */
@@ -521,6 +575,41 @@ p {
 .cookie-settings-panel .btn {
   padding: 0.45rem 0.9rem;
   font-size: 0.9rem;
+}
+
+/* Persistent mobile Call Now button */
+.call-now {
+  position: fixed;
+  right: 16px;
+  bottom: 20px;
+  z-index: 10001; /* above cookie banner */
+  display: none; /* shown only on small screens */
+  background: var(--col-accent);
+  color: white;
+  border-radius: 999px;
+  padding: 0.6rem 0.9rem;
+  height: 56px;
+  min-width: 56px;
+  box-shadow: 0 8px 20px rgba(2, 6, 23, 0.2);
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.call-now .call-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+.call-now .call-text {
+  margin-left: 0.5rem;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 680px) {
+  .call-now {
+    display: flex;
+  }
 }
 
 .hero-home {

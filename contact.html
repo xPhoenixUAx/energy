@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | VoltGuard Engineering</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-info"><span>⚡ Licensed &amp; Insured</span><span>🕒 24/7 Dispatch</span></div>
+            <div class="top-info"><span>📞 (555) 123-4567</span></div>
+        </div>
+    </div>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">VOLT<span class="highlight">GUARD</span></span>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html">Portfolio</a></li>
+                    <li><a href="about.html">About Firm</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-cta"><a href="contact.html" class="btn btn-primary">Quote</a></div>
+            <button class="mobile-menu-toggle"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero hero-half hero-contact">
+            <div class="hero-bg-pattern"></div>
+            <div class="container hero-content fade-up">
+                <h1>Get in Touch</h1>
+                <p class="lead">Engineering consultation and emergency service requests.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="grid-2 items-start">
+                    
+                    <!-- Contact Info -->
+                    <div class="card card-static contact-info fade-up">
+                        <h3 class="mb-6">Headquarters</h3>
+                        
+                        <div class="contact-block">
+                            <h4 class="text-slate uppercase">Dispatch</h4>
+                            <p class="contact-phone"><a href="tel:+15551234567">(555) 123-4567</a></p>
+                            <p class="text-slate contact-hours">Mon-Fri: 7am - 6pm<br>Sat-Sun: Emergency Only</p>
+                        </div>
+
+                        <div class="contact-block">
+                            <h4 class="text-slate uppercase">Digital</h4>
+                            <p>projects@voltguard.com</p>
+                        </div>
+
+                        <div class="protocol-card">
+                            <h4 class="protocol-title"><span class="protocol-icon" aria-hidden="true">⚠️</span> Pre-Visit Protocol</h4>
+                            <ul class="protocol-list">
+                                <li>Ensure clear access to main panel (3ft clearance)</li>
+                                <li>Secure any pets</li>
+                                <li>List all affected circuits</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="card card-static contact-form-wrapper fade-up delay-100">
+                        <h2 class="contact-form-title">Project Inquiry</h2>
+                        <form id="contactForm" class="styled-form" novalidate>
+                            <div class="form-field">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required placeholder="Jane Smith">
+                            </div>
+
+                            <div class="form-field">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="(555) 000-0000">
+                            </div>
+
+                            <div class="form-field">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required placeholder="jane@company.com">
+                            </div>
+
+                            <div class="form-field">
+                                <label for="service">Project Type</label>
+                                <select id="service" name="service" required>
+                                    <option value="" disabled selected>Select option...</option>
+                                    <option value="commercial">Commercial / Industrial</option>
+                                    <option value="residential">Residential Service</option>
+                                    <option value="emergency">Emergency Repair</option>
+                                </select>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="message">Scope Details</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Describe the scope of work..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">Submit Request</button>
+                            
+                            <div id="formSuccess" class="form-success">
+                                <p>Message Sent. Dispatch notified.</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mega-footer">
+      <div class="container">
+        <div class="grid-4">
+          <div>
+            <h3 class="text-white">VoltGuard</h3>
+            <p>
+              Engineering-grade electrical contracting for the built
+              environment.
+            </p>
+            <div class="mt-6">
+              <span class="license-badge">Licensed &amp; Insured</span>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-white">Solutions</h4>
+            <ul class="footer-links">
+              <li><a href="services.html#panels">Power Distribution</a></li>
+              <li><a href="services.html#lighting">Lighting Control</a></li>
+              <li><a href="services.html#generators">Backup Power</a></li>
+              <li><a href="services.html#ev">EV Infrastructure</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-white">Company</h4>
+            <ul class="footer-links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="projects.html">Portfolio</a></li>
+              <li><a href="about.html#careers">Careers</a></li>
+              <li><a href="contact.html">Client Portal</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-white">Legal</h4>
+            <ul class="footer-links">
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="terms-of-service.html">Terms of Service</a></li>
+              <li><a href="cookie-policy.html">Cookie Policy</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-white">Contact</h4>
+            <p>
+              <strong>Dispatch:</strong> (555) 123-4567<br />
+              <strong>Email:</strong> help@voltguard.com
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container text-center">
+          <div>&copy; 2024 VoltGuard Electrical Engineering. All Rights Reserved.</div>
+          <small class="footer-operator">
+            Website Operator: SHOPCANARY s.r.o., Rybná 716/24, Staré Město, 110 00 Praha 1, Czech Republic.
+            Company Registration No.: C 398373, Municipal Court in Prague
+          </small>
+          <div class="footer-divider" aria-hidden="true"></div>
+          <small class="footer-disclaimer">
+            Disclaimer: voltguard.com is a free service to assist homeowners in connecting with local service providers.
+            All contractors/providers are independent and voltguard.com does not warrant or guarantee any work performed.
+            It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license
+            and insurance required for the work being performed. All persons depicted in a photo or video are actors or
+            models and not contractors listed on this site.
+          </small>
+        </div>
+      </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

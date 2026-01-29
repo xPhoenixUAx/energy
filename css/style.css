@@ -457,6 +457,21 @@ p {
   outline-offset: 2px;
 }
 
+/* Make Reject button high-contrast */
+.cookie-banner .cookie-actions .cookie-reject {
+  background: #ffffff;
+  color: #b91c1c;
+  border: 1px solid rgba(185, 28, 28, 0.12);
+  box-shadow: 0 2px 6px rgba(2, 6, 23, 0.12);
+}
+.cookie-banner .cookie-actions .cookie-reject:hover {
+  background: #fff0f0;
+}
+.cookie-banner .cookie-actions .cookie-reject:focus {
+  outline: 3px solid rgba(185, 28, 28, 0.16);
+  outline-offset: 2px;
+}
+
 @media (max-width: 680px) {
   .cookie-banner .cookie-banner-inner {
     flex-direction: column;
@@ -464,12 +479,48 @@ p {
     text-align: left;
   }
   .cookie-banner .cookie-actions {
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 0.5rem;
     margin-top: 0.5rem;
   }
   .cookie-banner .cookie-actions .btn {
-    width: 48%;
+    width: 100%;
   }
+}
+
+/* Cookie settings panel */
+.cookie-settings-panel {
+  display: none;
+  margin-top: 0.6rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.65rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+.cookie-settings-panel.open {
+  display: block;
+}
+.cookie-settings-panel label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #dbeefc;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+.cookie-settings-panel input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+.cookie-settings-panel .settings-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+.cookie-settings-panel .btn {
+  padding: 0.45rem 0.9rem;
+  font-size: 0.9rem;
 }
 
 .hero-home {

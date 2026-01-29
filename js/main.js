@@ -146,9 +146,18 @@ document.addEventListener("DOMContentLoaded", () => {
                             We use cookies to improve your experience on this site. By continuing, you agree to our
                             <a href="cookie-policy.html" class="cookie-link">Cookie Policy</a>.
                         </p>
+                        <div class="cookie-settings-panel" aria-hidden="true">
+                            <label><input type="checkbox" class="chk-analytics" /> Enable Analytics</label>
+                            <label><input type="checkbox" class="chk-marketing" /> Enable Marketing</label>
+                            <div class="settings-actions">
+                                <button class="btn btn-outline cookie-cancel-settings" type="button">Cancel</button>
+                                <button class="btn btn-primary cookie-save-settings" type="button">Save</button>
+                            </div>
+                        </div>
                     </div>
                     <div class="cookie-actions">
                         <button class="btn btn-outline cookie-settings" type="button">Cookie Settings</button>
+                        <button class="btn btn-outline cookie-reject" type="button">Reject</button>
                         <button class="btn btn-primary cookie-accept" type="button">Accept</button>
                     </div>
                 </div>`;
@@ -156,16 +165,83 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.appendChild(banner);
 
       const acceptBtn = banner.querySelector(".cookie-accept");
+      const rejectBtn = banner.querySelector(".cookie-reject");
       const settingsBtn = banner.querySelector(".cookie-settings");
+      const settingsPanel = banner.querySelector(".cookie-settings-panel");
+      const saveSettingsBtn = banner.querySelector(".cookie-save-settings");
+      const cancelSettingsBtn = banner.querySelector(".cookie-cancel-settings");
+      const chkAnalytics = banner.querySelector(".chk-analytics");
+      const chkMarketing = banner.querySelector(".chk-marketing");
+
+      function saveConsent(obj) {
+        try {
+          localStorage.setItem(consentKey, JSON.stringify(obj));
+        } catch (e) {
+          console.warn("Saving consent failed", e);
+        }
+      }
 
       acceptBtn.addEventListener("click", () => {
-        localStorage.setItem(consentKey, "accepted");
+        saveConsent({
+          essential: true,
+          analytics: true,
+          marketing: true,
+          status: "accepted",
+        });
+        banner.classList.add("cookie-hidden");
+        setTimeout(() => banner.remove(), 350);
+      });
+
+      rejectBtn.addEventListener("click", () => {
+        saveConsent({
+          essential: true,
+          analytics: false,
+          marketing: false,
+          status: "rejected",
+        });
         banner.classList.add("cookie-hidden");
         setTimeout(() => banner.remove(), 350);
       });
 
       settingsBtn.addEventListener("click", () => {
-        window.location.href = "cookie-policy.html";
+        const isOpen = settingsPanel.classList.contains("open");
+        if (!isOpen) {
+          const stored = localStorage.getItem(consentKey);
+          if (stored) {
+            try {
+              const c = JSON.parse(stored);
+              chkAnalytics.checked = !!c.analytics;
+              chkMarketing.checked = !!c.marketing;
+            } catch (e) {}
+          } else {
+            chkAnalytics.checked = false;
+            chkMarketing.checked = false;
+          }
+          settingsPanel.classList.add("open");
+          settingsPanel.setAttribute("aria-hidden", "false");
+        } else {
+          settingsPanel.classList.remove("open");
+          settingsPanel.setAttribute("aria-hidden", "true");
+        }
+      });
+
+      cancelSettingsBtn.addEventListener("click", () => {
+        settingsPanel.classList.remove("open");
+        settingsPanel.setAttribute("aria-hidden", "true");
+      });
+
+      saveSettingsBtn.addEventListener("click", () => {
+        const consent = {
+          essential: true,
+          analytics: !!chkAnalytics.checked,
+          marketing: !!chkMarketing.checked,
+          status: "custom",
+        };
+        saveConsent(consent);
+        settingsPanel.classList.remove("open");
+        settingsPanel.setAttribute("aria-hidden", "true");
+        banner.classList.add("cookie-hidden");
+        setTimeout(() => banner.remove(), 350);
       });
     } catch (e) {
       // Fail silently if storage not available

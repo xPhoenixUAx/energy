@@ -398,6 +398,80 @@ p {
 .hero .lead {
   color: #e2e8f0;
 }
+
+/* =========================================
+   COOKIE BANNER
+   ========================================= */
+.cookie-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(2, 6, 23, 0.98);
+  color: #e6eef8;
+  z-index: 9999;
+  padding: 0.9rem 0;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+  box-shadow: 0 -6px 24px rgba(2, 6, 23, 0.35);
+}
+.cookie-banner.cookie-hidden {
+  transform: translateY(110%);
+}
+.cookie-banner .cookie-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.cookie-banner .cookie-copy p {
+  margin: 0;
+  color: #dbeefc;
+  font-size: 0.95rem;
+}
+.cookie-banner .cookie-link {
+  color: var(--col-accent);
+  text-decoration: underline;
+}
+.cookie-banner .cookie-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+.cookie-banner .cookie-actions .btn {
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* Make "Cookie Settings" more visible on dark banner */
+.cookie-banner .cookie-actions .cookie-settings {
+  background: #ffffff;
+  color: var(--col-navy-dark);
+  border-color: transparent;
+  box-shadow: 0 2px 6px rgba(2, 6, 23, 0.12);
+}
+.cookie-banner .cookie-actions .cookie-settings:hover {
+  background: #f1f5f9;
+}
+.cookie-banner .cookie-actions .cookie-settings:focus {
+  outline: 3px solid rgba(14, 165, 233, 0.18);
+  outline-offset: 2px;
+}
+
+@media (max-width: 680px) {
+  .cookie-banner .cookie-banner-inner {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+  }
+  .cookie-banner .cookie-actions {
+    justify-content: space-between;
+    margin-top: 0.5rem;
+  }
+  .cookie-banner .cookie-actions .btn {
+    width: 48%;
+  }
+}
+
 .hero-home {
   /* Homepage-only hero background image with a readability overlay */
   background-image:
